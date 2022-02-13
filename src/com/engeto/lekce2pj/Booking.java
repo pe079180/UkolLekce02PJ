@@ -8,15 +8,20 @@ public class Booking {
     private List<HotelGuest> guests;
     private LocalDate bookedFrom;
     private LocalDate bookedTo;
-    private String reasonOfStay;  // "relax", "business"
+    private ReasonOfStay reasonOfStay;
 
-    public Booking(int roomNumber, List<HotelGuest> guests, LocalDate bookedFrom, LocalDate bookedTo, String reasonOfStay) {
+    public Booking(int roomNumber, List<HotelGuest> guests, LocalDate bookedFrom, LocalDate bookedTo, ReasonOfStay reasonOfStay) {
         this.roomNumber = roomNumber;
         this.guests = guests;
         this.bookedFrom = bookedFrom;
         this.bookedTo = bookedTo;
         this.reasonOfStay = reasonOfStay;
     }
+
+//    doesn't work :-(
+//    public Booking(int roomNumber, List<HotelGuest> guests, ReasonOfStay reasonOfStay) {
+//        Booking(roomNumber, guests, LocalDate.now(), LocalDate.now().plusDays(6), reasonOfStay);
+//    }
 
     public int getRoomNumber() {
         return roomNumber;
@@ -50,21 +55,21 @@ public class Booking {
         this.bookedTo = bookedTo;
     }
 
-    public String getReasonOfStay() {
+    public ReasonOfStay getReasonOfStay() {
         return reasonOfStay;
     }
 
-    public void setReasonOfStay(String reasonOfStay) {
+    public void setReasonOfStay(ReasonOfStay reasonOfStay) {
         this.reasonOfStay = reasonOfStay;
     }
 
     public String getDescription() {
         String guestList = "\n   guests:";
 
-        for(int i=1;i<=guests.size();i++){
-            guestList = guestList+ guests.get(i-1).getDescription() + "\n          ";
+        for (int i = 1; i <= guests.size(); i++) {
+            guestList = guestList + guests.get(i - 1).getDescription() + "\n          ";
         }
 
-        return ("Room No." + roomNumber + ": stay from " + bookedFrom + " to " + bookedTo + ", type " + reasonOfStay + guestList);
+        return ("Room No." + roomNumber + ": stay from " + bookedFrom + " to " + bookedTo + ", " + reasonOfStay + guestList);
     }
 }

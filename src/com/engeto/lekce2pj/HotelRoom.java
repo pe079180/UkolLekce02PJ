@@ -6,10 +6,10 @@ public class HotelRoom {
     private int roomNumber;
     private int bedCount;
     private BigDecimal price;
-    private String balcony;  // values "yes","no"
-    private String seaView;  //values "yes","no"
+    private YesNo balcony;
+    private YesNo seaView;
 
-    public HotelRoom(int roomNumber, int bedCount, BigDecimal price, String balcony, String seaView) {
+    public HotelRoom(int roomNumber, int bedCount, BigDecimal price, YesNo balcony, YesNo seaView) {
         this.roomNumber = roomNumber;
         this.bedCount = bedCount;
         this.price = price;
@@ -41,19 +41,19 @@ public class HotelRoom {
         this.price = price;
     }
 
-    public String getBalcony() {
+    public YesNo getBalcony() {
         return balcony;
     }
 
-    public void setBalcony(String balcony) {
+    public void setBalcony(YesNo balcony) {
         this.balcony = balcony;
     }
 
-    public String getSeaView() {
+    public YesNo getSeaView() {
         return seaView;
     }
 
-    public void setSeaView(String seaView) {
+    public void setSeaView(YesNo seaView) {
         this.seaView = seaView;
     }
 
