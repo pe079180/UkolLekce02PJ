@@ -20,7 +20,7 @@ public class Main {
         guest2 = new HotelGuest("Jan", "Dvořáček", LocalDate.of(1995, 5, 5));
         System.out.println(guest2.getDescription());
 
-        System.out.println("");
+        System.out.println();
 
         //rooms setting
         System.out.println("-- hotel rooms");
@@ -30,7 +30,7 @@ public class Main {
         System.out.println(room01.getDescription());
         System.out.println(room02.getDescription());
         System.out.println(room03.getDescription());
-        System.out.println("");
+        System.out.println();
 
         // booking list initialization
         BookingList bookingList = new BookingList(); //empty booking list is created
@@ -40,7 +40,7 @@ public class Main {
         // first reservation
         List<HotelGuest> guests = new ArrayList<>();
         guests.add(guest1);
-        Booking booking = new Booking(1,guests,LocalDate.of(2021,7,19),LocalDate.of(2021,7,26),ReasonOfStay.BUSINESS);
+        Booking booking = new Booking(1, guests, LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26), ReasonOfStay.BUSINESS);
         bookingList.addBooking(booking);
         //System.out.println( booking.getDescription());
 
@@ -49,6 +49,7 @@ public class Main {
         guests.add(guest1);
         guests.add(guest2);
         booking = new Booking(3,guests,LocalDate.of(2021,9,1),LocalDate.of(2021,9,14),ReasonOfStay.HOLIDAY);
+        // booking = new Booking(3, guests, ReasonOfStay.HOLIDAY); //without from-to params
         bookingList.addBooking(booking);
         //System.out.println( booking.getDescription());
 

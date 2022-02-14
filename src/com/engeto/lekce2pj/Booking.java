@@ -18,10 +18,10 @@ public class Booking {
         this.reasonOfStay = reasonOfStay;
     }
 
-//    doesn't work :-(
-//    public Booking(int roomNumber, List<HotelGuest> guests, ReasonOfStay reasonOfStay) {
-//        Booking(roomNumber, guests, LocalDate.now(), LocalDate.now().plusDays(6), reasonOfStay);
-//    }
+    // when bookedFrom, bookedTo in null set default bookedFrom=current date, bookedTo=current date + 6
+    public Booking(int roomNumber, List<HotelGuest> guests, ReasonOfStay reasonOfStay) {
+        this(roomNumber, guests, LocalDate.now(), LocalDate.now().plusDays(6), reasonOfStay);
+    }
 
     public int getRoomNumber() {
         return roomNumber;
@@ -67,7 +67,8 @@ public class Booking {
         String guestList = "\n   guests:";
 
         for (int i = 1; i <= guests.size(); i++) {
-            guestList = guestList + guests.get(i - 1).getDescription() + "\n          ";
+//            guestList = guestList + guests.get(i - 1).getDescription() + "\n          ";
+            guestList = guestList.concat(guests.get(i - 1).getDescription()).concat("\n          ");
         }
 
         return ("Room No." + roomNumber + ": stay from " + bookedFrom + " to " + bookedTo + ", " + reasonOfStay + guestList);
