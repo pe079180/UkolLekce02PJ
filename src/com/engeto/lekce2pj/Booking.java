@@ -66,10 +66,17 @@ public class Booking {
     public String getDescription() {
         String guestList = "\n   guests:";
 
-        for (int i = 1; i <= guests.size(); i++) {
-//            guestList = guestList + guests.get(i - 1).getDescription() + "\n          ";
-            guestList = guestList.concat(guests.get(i - 1).getDescription()).concat("\n          ");
+        for (HotelGuest guest : guests
+        ) {
+            //  guestList.concat(guest.getDescription()).concat("\n          "); // this doesn't work
+            guestList = guestList + guest.getDescription() + "\n          ";
+
         }
+
+// below code is possible
+//        for (int i = 1; i <= guests.size(); i++) {
+//            guestList = guestList.concat(guests.get(i - 1).getDescription()).concat("\n          ");
+//        }
 
         return ("Room No." + roomNumber + ": stay from " + bookedFrom + " to " + bookedTo + ", " + reasonOfStay + guestList);
     }
